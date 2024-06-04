@@ -10,13 +10,19 @@
             margin-top: 20px;
             font-size: 1.2em;
         }
+        #startSpeechButton {
+            font-size: 1.5em; /* Increase text size */
+            padding: 15px 30px; /* Increase padding */
+            border-radius: 8px; /* Optional: add rounded corners */
+        }
     </style>
+    
 </head>
 <body>
     <button id="wakeLockButton">Request Wake Lock</button>
     <button id="releaseWakeLockButton" disabled>Release Wake Lock</button>
     <div id="status">Wake lock inactive.</div>
-    <button onclick="startSpeech()">Start Reading</button>
+    <button id="startSpeechButton" onclick="startSpeech()">Start Reading</button>
 <div><p>JOHNNY: (thinks) That can't be right.</p></div>
 <div><p>(Pause for 4.5 seconds)</p><p>I w l t t y a f c.</p></div>
 <div><p>PROFESSOR: It's not like we were given much of a choice, old boy.</p></div>
