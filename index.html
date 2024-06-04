@@ -5,8 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Script with Speech Synthesis</title>
+    <style>
+        #status {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
+    <button id="wakeLockButton">Request Wake Lock</button>
+    <button id="releaseWakeLockButton" disabled>Release Wake Lock</button>
+    <div id="status">Wake lock inactive.</div>
     <button onclick="startSpeech()">Start Reading</button>
 <div><p>JOHNNY: (thinks) That can't be right.</p></div>
 <div><p>(Pause for 4.5 seconds)</p><p>I w l t t y a f c.</p></div>
@@ -37,9 +46,9 @@
 <div><p>JOHNNY: Hey you - you show some darn respect.</p></div>
 <div><p>(Pause for 14.0 seconds)</p><p>I d n n f y t s u f m. N, I, P N, n n t p h c I a b m c i m.</p></div>
 <div><p>LIONEL: Maybe it's a French thing!</p></div>
-<div><p>(Pause for 4.0 seconds)</p><p>I a n F! I a B!  (coughs)</p></div>
+<div><p>(Pause for 4.0 seconds)</p><p>I a n F! I a B! (coughs)</p></div>
 <div><p>ADELINE: The French do not need to shout.</p></div>
-<div><p>(Pause for 7.0 seconds)</p><p>I f t a i r f y t m m.  (coughs on Adeline)</p></div>
+<div><p>(Pause for 7.0 seconds)</p><p>I f t a i r f y t m m. (coughs on Adeline)</p></div>
 <div><p>LIONEL: Said the man who keeps hitting on the French gal half his age.</p></div>
 <div><p>(Pause for 5.5 seconds)</p><p>Y a v o w y b c y g d.</p></div>
 <div><p>PROFESSOR: I bet you a nickel that I don't have any gambling debts!</p></div>
@@ -49,7 +58,7 @@
 <div><p>LIONEL: Kill my own Father?</p></div>
 <div><p>(Pause for 14.5 seconds)</p><p>T s t b n g l l. Y F i d a y y a s h. N l a s t l h d i y h.</p></div>
 <div><p>LIONEL: Some things in life are more important than death. Like fishing.</p></div>
-<div><p>(Pause for 1.0 seconds)</p><p>Ne-c p.</p></div>
+<div><p>(Pause for 1.0 seconds)</p><p>N p.</p></div>
 <div><p>MADAM MAPLE: I can't argue in French, if you could, please, accuse me in English.</p></div>
 <div><p>(Pause for 5.5 seconds)</p><p>M A w g t e y a a f! (coughs)</p></div>
 <div><p>MADAM MAPLE: Another Gonorrhea card! That's strange, there's only one in the deck.</p></div>
@@ -62,24 +71,24 @@
 <div><p>(Pause for 15.5 seconds)</p><p>T i v t M, b f g i n t o m f m. N, t m p m i g b t a o t h. (coughs on Adeline)</p></div>
 <div><p>ADELINE: And I only just met him.</p></div>
 <div><p>(Pause for 5.5 seconds)</p><p>B c y d t A m f F w i?</p></div>
-<div><p>ADELINE: This is my first time in America-</p></div>
+<div><p>ADELINE: This is my first time in America</p></div>
 <div><p>(Pause for 9.5 seconds)</p><p>(INTERRUPTING) B d h n f o i f y p? I t y w w t k s?</p></div>
 <div><p>MADGE: Me neither.</p></div>
 <div><p>(Pause for 6.0 seconds)</p><p>B y a t M A n t t s w y.</p></div>
 <div><p>MADGE: No!</p></div>
 <div><p>(Pause for 4.5 seconds)</p><p>Y d a h t t s w y?</p></div>
 <div><p>MADGE: No?</p></div>
-<div><p>(Pause for 6.5 seconds)</p><p>N y dt a h t i o n h dt t i?</p></div>
+<div><p>(Pause for 6.5 seconds)</p><p>N y d a h t i o n h d t i?</p></div>
 <div><p>MADGE: Sorry, yes. Meaning no.</p></div>
 <div><p>(Pause for 4.5 seconds)</p><p>E t h s w e s b y.</p></div>
 <div><p>MADGE: That's the rumor.</p></div>
-<div><p>(Pause for 3.0 seconds)</p><p>Ts t t!  (coughs on Adeline)</p></div>
+<div><p>(Pause for 3.0 seconds)</p><p>T t t! (coughs on Adeline)</p></div>
 <div><p>MADGE: I didn't apply to be his secretary hoping that he would sleep with me.</p></div>
 <div><p>(Pause for 3.5 seconds)</p><p>Y d n f s b h?</p></div>
 <div><p>MADGE: No, I found it very refreshing to file papers without any sexual harassment.</p></div>
 <div><p>(Pause for 7.0 seconds)</p><p>A w a t r o y? (Coughs) W y b s t b?</p></div>
 <div><p>LIONEL: My father was a lot of things - a womanizer, he wore brown shoes with black belts, he loved Hitler - but he was not a blackmailer!</p></div>
-<div><p>(Pause for 19.0 seconds)</p><p>T i t! (Coughs) B a m, b i t m v c a h c c (coughs) f i p t c o j (coughs). I v g o t t! I c n s b -</p></div>
+<div><p>(Pause for 19.0 seconds)</p><p>T i t! (Coughs) B a m, b i t m v c a h c c (coughs) f i p t c o j (coughs) . I v g o t t! I c n s b -</p></div>
 <div><p>JOHNNY: Sir! Are you ok?</p></div>
 <div><p>(Pause for 2.0 seconds)</p><p>I w n -</p></div>
 <div><p>JOHNNY: What makes you say that?</p></div>
@@ -95,7 +104,7 @@
 <div><p>MADAM MAPLE: I remember when French people were French and dead people were dead.</p></div>
 <div><p>(Pause for 5.0 seconds)</p><p>N I w e t y w t m i.</p></div>
 <div><p>PROFESSOR: Shut up!</p></div>
-<div><p>(Pause for 0.5 seconds)</p><p>E-m?</p></div>
+<div><p>(Pause for 0.5 seconds)</p><p>E?</p></div>
 <div><p>MADAM MAPLE: Why didn't you tell us who the murderer was before you faked your own death?</p></div>
 <div><p>(Pause for 3.0 seconds)</p><p>I t t w b o!</p></div>
 <div><p>MADAM MAPLE: If you had revealed who the murderer was, the tragedy of Lionel's death could have been avoided.</p></div>
@@ -107,7 +116,7 @@
 <div><p>MADAM MAPLE: You lost that right when you got Lionel killed.</p></div>
 <div><p>(Pause for 3.0 seconds)</p><p>Y d n e l L!</p></div>
 <div><p>MADAM MAPLE: So who wants to tell us what happened?</p></div>
-<div><p>(Pause for 3.5 seconds)</p><p>I r w I a h t-</p></div>
+<div><p>(Pause for 3.5 seconds)</p><p>I r w I a h t</p></div>
 <div><p>JOHNNY: (TO PROMETHEUS) Wait, sorry, but um, I smelled almond on your breath and you spat blood in my face.</p></div>
 <div><p>(Pause for 5.0 seconds)</p><p>A s a a u a b c. S i.</p></div>
 <div><p>MADGE: And we found out that everyone was being blackmailed by Prometheus Noir.</p></div>
@@ -135,7 +144,7 @@
 <div><p>JOHNNY: Perhaps. But I am tired of struggling. Remember me fondly.</p></div>
 <div><p>(Pause for 5.0 seconds)</p><p>D n b s! Y c k a o u.</p></div>
 <div><p>MADAM MAPLE: Poutine sounds great right now.</p></div>
-<div><p>(Pause for 5.5 seconds)</p><p>L! M a w-c d j y? Si v p�t? E-m?</p></div>
+<div><p>(Pause for 5.5 seconds)</p><p>L! M a w d j y? S v p? E?</p></div>
 
 <script>
 function speakText(text, callback) {
@@ -169,6 +178,49 @@ function startSpeech() {
 
     readNext();
 }
+
+let wakeLock = null;
+const statusDiv = document.getElementById('status');
+const wakeLockButton = document.getElementById('wakeLockButton');
+const releaseWakeLockButton = document.getElementById('releaseWakeLockButton');
+
+async function requestWakeLock() {
+    try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        statusDiv.textContent = 'Wake lock is active';
+        wakeLockButton.disabled = true;
+        releaseWakeLockButton.disabled = false;
+        console.log('Wake lock is active');
+
+        // Listen for release event
+        wakeLock.addEventListener('release', () => {
+            statusDiv.textContent = 'Wake lock was released';
+            wakeLockButton.disabled = false;
+            releaseWakeLockButton.disabled = true;
+            console.log('Wake lock was released');
+        });
+    } catch (err) {
+        statusDiv.textContent = `Wake lock request failed: ${err.name}, ${err.message}`;
+        console.error(`Wake lock request failed: ${err.name}, ${err.message}`);
+    }
+}
+
+async function releaseWakeLock() {
+    if (wakeLock) {
+        await wakeLock.release();
+        wakeLock = null;
+        statusDiv.textContent = 'Wake lock was manually released';
+        wakeLockButton.disabled = false;
+        releaseWakeLockButton.disabled = true;
+        console.log('Wake lock was manually released');
+    }
+}
+
+wakeLockButton.addEventListener('click', requestWakeLock);
+releaseWakeLockButton.addEventListener('click', releaseWakeLock);
+
+// Optional: Automatically request wake lock on page load
+document.addEventListener('DOMContentLoaded', requestWakeLock);
 </script>
 </body>
 </html>
